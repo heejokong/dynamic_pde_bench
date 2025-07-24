@@ -1,3 +1,3 @@
-# time_dependent_pde
+# dynamic_pde_bench
 
 A unified benchmark for time-dependent PDE operators
