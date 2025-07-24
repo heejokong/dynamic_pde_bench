@@ -196,10 +196,7 @@ class Block(nn.Module):
 class PatchEmbed(nn.Module):
     def __init__(self, img_size=224, patch_size=16, in_chans=3, embed_dim=768, out_dim=128, act='gelu'):
         super(PatchEmbed, self).__init__()
-        if isinstance(img_size, int):
-            img_size = (img_size[0], img_size[1])
-        else:
-            img_size = [int(x) for x in img_size.split(',')]
+        img_size = (img_size[0], img_size[1])
         patch_size = (patch_size, patch_size)
         num_patches = (img_size[1] // patch_size[1]) * (img_size[0] // patch_size[0])
         self.img_size = img_size
