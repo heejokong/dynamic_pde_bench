@@ -1,0 +1,65 @@
+seed: 1
+algorithm: standard_mse
+net: dpot2d
+dataset: ns2d_fno_1e-3
+save_name: dpot_ns2d_fno_1e-3_1
+save_dir: ./saved_models/teacher_forcing/dpot_small/
+load_path: ./saved_models/teacher_forcing/dpot_small/dpot_ns2d_fno_1e-3_1/latest_model.pth
+# 
+resume: false
+overwrite: true
+use_tensorboard: false
+dataset_type: temporal
+normalize: false
+# FOR DATASET CONFIGURATIONS
+img_size: 64, 64
+res: 64
+n_channels: 1
+T_in: 10
+T_ar: 20
+T_bundle: 1
+noise_scale: 0.0
+# noise_scale: 0.0005
+# FOR OPTIMIZATION CONFIGURATIONS
+epochs: 500
+num_train_iter: 16000
+num_eval_iter: 32
+num_log_iter: 16
+batch_size: 32
+eval_batch_size: 32
+# 
+optim: adamw
+beta1: 0.9
+beta2: 0.999
+# 
+clip_grad: 5.0
+warmup_epochs: 50
+weight_decay: 1e-6
+lr: 0.001
+lr_method: cycle
+# FOR TRAINING CONFIGURATIONS
+train_sampler: RandomSampler
+num_workers: 8
+world_size: 1
+rank: 0
+multiprocessing_distributed: false
+dist_url: tcp://127.0.0.1:22647
+dist_backend: nccl
+gpu: None
+# DPOT SPECIFIC CONFIGURATIONS
+patch_size: 4
+width: 1024
+mlp_ratio: 1
+n_blocks: 8
+n_layers: 6
+modes: 32
+out_layer_dim: 32
+act: gelu
+mixing_type: afno
+time_agg: exp_mlp
+use_ln: false
+# FOR ADDITIONAL TRAINING CONFIGURATIONS
+use_tf: ture
+# use_tf: false
+use_dcm: false
+use_sampler: false

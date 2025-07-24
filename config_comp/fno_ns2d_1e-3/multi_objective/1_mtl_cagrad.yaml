@@ -1,0 +1,58 @@
+seed: 1
+algorithm: mtl
+net: fno2d
+dataset: ns2d_fno_1e-3
+save_name: mtl_cagrad
+save_dir: ./saved_models_comp/fno_ns2d_1e-3/multi_objective/
+load_path: ./saved_models_comp/fno_ns2d_1e-3/multi_objective/mtl_cagrad/latest_model.pth
+# 
+resume: false
+overwrite: true
+use_tensorboard: false
+dataset_type: temporal
+normalize: false
+# FOR DATASET CONFIGURATIONS
+img_size: 64, 64
+res: 64
+n_channels: 1
+T_in: 10
+T_ar: 20
+T_bundle: 1
+# FOR OPTIMIZATION CONFIGURATIONS
+epochs: 500
+num_train_iter: 16000
+num_eval_iter: 32
+num_log_iter: 16
+batch_size: 32
+eval_batch_size: 32
+# 
+optim: adamw
+beta1: 0.9
+beta2: 0.999
+# 
+clip_grad: 5.0
+warmup_epochs: 50
+weight_decay: 1e-6
+lr: 0.001
+lr_method: cycle
+# FOR TRAINING CONFIGURATIONS
+train_sampler: RandomSampler
+num_workers: 8
+world_size: 1
+rank: 0
+multiprocessing_distributed: false
+dist_url: tcp://127.0.0.1:22647
+dist_backend: nccl
+gpu: None
+# FNO SPECIFIC CONFIGURATIONS
+modes1: 12
+modes2: 12
+modes3: 12
+width: 20
+n_layers: 4
+padding: 0,0
+use_ln: false
+# FOR ADDITIONAL TRAINING CONFIGURATIONS
+use_proj_grad: true
+proj_type: cagrad
+noise_scale: 0.0
