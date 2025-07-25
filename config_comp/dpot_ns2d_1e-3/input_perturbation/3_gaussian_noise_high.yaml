@@ -20,11 +20,11 @@ T_ar: 20
 T_bundle: 1
 # FOR OPTIMIZATION CONFIGURATIONS
 epochs: 500
-num_train_iter: 16000
-num_eval_iter: 32
-num_log_iter: 16
-batch_size: 32
-eval_batch_size: 32
+num_train_iter: 32000
+num_eval_iter: 16
+num_log_iter: 8
+batch_size: 16
+eval_batch_size: 16
 # 
 optim: adamw
 beta1: 0.9
@@ -62,4 +62,4 @@ use_tf: ture
 use_sampler: false
 sampler_type: train
 decay_type: exponential
-noise_scale: 0.001
+noise_scale: 0.005
